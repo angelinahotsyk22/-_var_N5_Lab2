@@ -1,0 +1,32 @@
+import sys
+
+try:
+    numbers_1d = [int(x) for x in input().split()]
+except ValueError:
+    print("Помилка: Всі елементи мають бути цілими числами.")
+    sys.exit()
+
+total_elements = len(numbers_1d)
+
+while True:
+    try:
+        N = int(input())
+        if N <= 0 or total_elements % N != 0:
+            print("Некоректне N.")
+        else:
+            break
+    except ValueError:
+        print("Помилка: N має бути цілим числом.")
+        
+M = total_elements // N
+
+matrix = []
+for i in range(M):
+    start = i * N
+    end = (i + 1) * N
+    matrix.append(numbers_1d[start:end])
+    
+reflected_matrix = matrix[::-1]
+
+for row in reflected_matrix:
+    print(row)
