@@ -1,0 +1,12 @@
+import random
+
+ARRAY_SIZE = 20
+MIN_VAL = 1
+MAX_VAL = 1000
+
+array = [random.randint(MIN_VAL, MAX_VAL) for _ in range(ARRAY_SIZE)]
+
+multiples = sorted([num for num in array if num % 11 == 0], reverse=True)
+
+print(array)
+print(multiples)
